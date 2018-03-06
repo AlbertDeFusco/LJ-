@@ -13,33 +13,17 @@ void Particle::set_position(double a, double b, double c) {
     z = c;
 }
 
-double distance(Particle p1, Particle p2) {
+double Particle::distance(Particle other) {
     double d2, dist;
-    d2 = pow(p2.get_x() - p1.get_x(), 2)
-       + pow(p2.get_y() - p1.get_y(), 2)
-       + pow(p2.get_z() - p1.get_z(), 2);
+    double dx, dy, dz;
+    dx = other.get_x() - this->get_x();
+    dy = other.get_y() - this->get_y();
+    dz = other.get_z() - this->get_z();
+
+    d2 = (dx*dx) + (dy*dy) + (dz*dz);
+
     dist = sqrt(d2);
     return dist;
 }
 
-int main()
-{
 
-    /*Particle * particles;
-    particles = new Particle[2];
-
-    particles[0].set_position(0., 0.);
-    particles[1].set_position(2., 1.);
-    double d;
-    d = distance(particles[0], particles[1]);
-    cout << d << endl;*/
-
-    string inputfile = "dimer.xyz";
-    Particle *particles = NULL;
-    int n_atoms = read_cluster(particles, inputfile);
-
-    cout << n_atoms << endl;
-    cout << particles[1].get_z() << endl;
-
-    return 0;
-}
