@@ -5,10 +5,16 @@
 #include "io.h"
 #include "lennard-jones.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 
-    string inputfile = "dimer.xyz";
+
+    if (argc<2) {
+        cerr << "Please specify the filename to read" << endl;
+        return 1;
+    }
+
+    string inputfile(argv[1]);
     Particle *particles = NULL;
     int n_atoms = read_cluster(particles, inputfile);
 

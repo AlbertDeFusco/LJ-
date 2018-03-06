@@ -3,7 +3,6 @@
 #include <string>
 
 #include "particle.h"
-#include "io.h"
 
 using namespace std;
 

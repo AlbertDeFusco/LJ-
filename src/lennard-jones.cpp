@@ -19,7 +19,6 @@ double LennardJones::total_energy(Particle particles[], int n_atoms) {
     for (int i=0; i<n_atoms - 1; i++) {
         for (int j=i+1; j<n_atoms; j++) {
             r = particles[j].distance(particles[i]);
-            cout << i << ',' << j << " : " << r << endl;
             e += potential(r);
         }
     }
